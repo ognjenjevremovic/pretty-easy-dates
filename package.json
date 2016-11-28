@@ -1,0 +1,19 @@
+{
+  "name": "pretty-easy-dates",
+  "version": "0.0.1",
+  "description": "Easy dates in string or JavaScript object notation format",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./_test.js"
+  },
+  "keywords": [
+    "pretty-easy-dates",
+    "pretty-easy-*",
+    "pretty-easy",
+    "prettyeasy",
+    "dates",
+    "date"
+  ],
+  "author": "Ognjen Jevremović",
+  "license": "MIT"
+}
