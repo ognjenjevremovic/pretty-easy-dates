@@ -14,6 +14,7 @@ function pretty(param, timeframe) {
 function prettyDate(dateObj) {
     dateObj.month   =   (dateObj.month.length === 1) ? '0' + dateObj.month : dateObj.month;
     dateObj.day     =   (dateObj.day.length === 1)   ? '0' + dateObj.day   : dateObj.day;
+    dateObj.year    =   parseInt(dateObj.year);
     dateObj.month   =   parseInt(dateObj.month);
     dateObj.day     =   parseInt(dateObj.day);
 

@@ -156,7 +156,7 @@ Which will result in an output:
 today:
    { timestamp: 1480410829328,
      dateObj: Tue Nov 29 2016 10:13:49 GMT+0100 (Central Europe Standard Time),
-     year: '2016',
+     year: 2016,
      month: 11,
      day: 29,
      hours: 10,
@@ -168,21 +168,21 @@ today:
   pastDate_22:
    { timestamp: 1478510029328,
      dateObj: Mon Nov 07 2016 10:13:49 GMT+0100 (Central Europe Standard Time),
-     year: '2016',
+     year: 2016,
      month: 11,
      day: 7,
      date: '7.11.2016' },
   pastDate_11:
    { timestamp: 1479460429328,
      dateObj: Fri Nov 18 2016 10:13:49 GMT+0100 (Central Europe Standard Time),
-     year: '2016',
+     year: 2016,
      month: 11,
      day: 18,
      date: '18.11.2016' },
   futureDate_16:
    { timestamp: 1481793229328,
      dateObj: Thu Dec 15 2016 10:13:49 GMT+0100 (Central Europe Standard Time),
-     year: '2016',
+     year: 2016,
      month: 12,
      day: 15,
      date: '15.12.2016' }
@@ -206,7 +206,7 @@ Which will result in an output:
 today:                                                                                
    { timestamp: 1480411200263,                                                          
      dateObj: Tue Nov 29 2016 10:20:00 GMT+0100 (Central Europe Standard Time),         
-     year: '2016',                                                                      
+     year: 2016,                                                                      
      month: 11,                                                                         
      day: 29,                                                                           
      hours: 10,                                                                         
@@ -218,14 +218,14 @@ today:
   yesterday:                                                                            
    { timestamp: 1480324800263,                                                          
      dateObj: Mon Nov 28 2016 10:20:00 GMT+0100 (Central Europe Standard Time),         
-     year: '2016',                                                                      
+     year: 2016,                                                                      
      month: 11,                                                                         
      day: 28,                                                                           
      date: '28.11.2016' },                                                              
   nextWeek:                                                                             
    { timestamp: 1481016000263,                                                          
      dateObj: Tue Dec 06 2016 10:20:00 GMT+0100 (Central Europe Standard Time),         
-     year: '2016',                                                                      
+     year: 2016,                                                                      
      month: 12,                                                                         
      day: 6,                                                                            
      date: '6.12.2016' }                                                              
