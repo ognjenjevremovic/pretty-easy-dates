@@ -9,101 +9,82 @@ var now         =   Date.now(),
 new Promise(function(resolve) {
     var date    =   datter();
 
-    console.log('\nSimple use - no parameters passed');
+    console.log('\nSimple use - no parameters supplied example');
     setTimeout(function() {
-        // logIt(date);
+        logIt(date);
         printIt(date);
-        return resolve('Test passed!');
+        return resolve();
     }, 2000);
 //  2.  Timestamp parameter passed
-}).then(function(passed) {
-    console.log(passed);
+}).then(function() {
     return new Promise(promise_cb);
 
     function promise_cb(resolve) {
         var timeframe   =   now + (dayPeriod * -5),     // 5 days ago
             date        =   datter(timeframe);
 
-        console.log('\nNumber (timestamp parameter) passed');
+        console.log('\nNumber (timestamp parameter) supplied example');
         setTimeout(function() {
-            // logIt(date);
+            logIt(date);
             printIt(date);
-            return resolve('Test passed!');
+            return resolve();
         }, 2000);
     }
 //  3. Array of strings
-}).then(function(passed) {
-    console.log(passed);
+}).then(function() {
     return new Promise(promise_cb);
 
     function promise_cb(resolve) {
-        var timeframes  =   [
-            'lw',
-            'ystd',
-            'tomorrow',
-            'next week'
-        ],
+        var timeframes  =   [ 'lw', 'tomorrow' ],
             date    =   datter(timeframes);
 
-        console.log('\nArray (of strings) passed');
+        console.log('\nArray (of strings) supplied example');
         setTimeout(function() {
             printIt(date);
             for (var prop in date) {
-                // logIt(date[prop]);
+                logIt(date[prop]);
             }
-            return resolve('Test passed!');
+            return resolve();
         }, 2000);
     }
 //  4. Array of numbers
-}).then(function(passed) {
-    console.log(passed);
+}).then(function() {
     return new Promise(promise_cb);
 
     function promise_cb(resolve) {
-        var timeframes  =   [
-            -12,
-            -5,
-            3,
-            10
-        ],
+        var timeframes  =   [ -12, 3 ],
             date    =   datter(timeframes);
 
-        console.log('\nArray (of numbers) passed');
+        console.log('\nArray (of numbers) supplied example');
         setTimeout(function() {
             printIt(date);
             for (var prop in date) {
-                // logIt(date[prop]);
+                logIt(date[prop]);
             }
-            return resolve('Test passed!');
+            return resolve();
         }, 2000);
     }
 //  5.  JavaScript object notation (with includes propertie === instanceof Array)
-}).then(function(passed) {
-    console.log(passed);
+}).then(function() {
     return new Promise(promise_cb);
 
     function promise_cb(resolve) {
         var timeframes  =   {
-            includes    :   [
-                -10,
-                'yesterday',
-                3
-            ]
+            includes    :   [ -10, 'yesterday' ]
         },
             date    =   datter(timeframes);
 
-        console.log('\nJavaScript object notation passed with includes propertie (that accepts array of strings || numbers)');
+        console.log('\nJavaScript object notation supplied with includes propertie (that accepts array of strings || numbers) example');
         setTimeout(function() {
             printIt(date);
             for (var prop in date) {
-                // logIt(date[prop]);
+                logIt(date[prop]);
             }
-            return resolve('Test passed!');
+            return resolve();
         }, 2000);
     }
 //  6.  JavaScript object notation (with properties)
-}).then(function(passed) {
-    console.log(passed);
+}).then(function() {
     return new Promise(promise_cb);
 
     function promise_cb(resolve) {
@@ -117,14 +98,13 @@ new Promise(function(resolve) {
         setTimeout(function() {
             printIt(date);
             for (var prop in date) {
-                // logIt(date[prop]);
+                logIt(date[prop]);
             }
-            return resolve('Test passed!');
+            return resolve();
         }, 2000);
     }
-}).then(function(passed) {
-    console.log(passed);
-    console.log('\nTest over!\nFull test coverage can be found in \'' + __dirname + '\\.testCoverage.txt\' file.');
+}).then(function() {
+    console.log('\nFull example coverage can be found in the file \'' + __dirname + '\\.examples.txt\' file.');
 });
 
 
@@ -139,7 +119,6 @@ function logIt(dateObj) {
 //  print to file
 function printIt(dateObj) {
     var output  =   '';
-
     console.log('\n');
 
     for (var timeframe in dateObj) {
@@ -152,11 +131,11 @@ function printIt(dateObj) {
             output  +=   _output(timeframe, dateObj[timeframe]);
         }
     }
-    fs.readFile('./.testCoverage.txt', function(err, data) {
+    fs.readFile('./.examples.txt', function(err, data) {
         if (err && err.code === 'ENOENT') {
-            return fs.writeFile('./.testCoverage.txt', (output + '\n\n'));
+            return fs.writeFile('./.examples.txt', (output + '\n\n'));
         }
-        return fs.writeFile('./.testCoverage.txt', (data + output + '\n\n'));
+        return fs.writeFile('./.examples.txt', (data + output + '\n\n'));
     });
 }
 //  console output
