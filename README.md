@@ -250,4 +250,5 @@ Anyone can help make this project better - check out the [github](https://github
 
 ### License
 Copyright (c) 2016 [Ognjen Jevremović](https://github.com/ognjenjevremovic)
+
 Licensed under the [MIT](https://github.com/ognjenjevremovic/pretty-easy-dates/blob/master/LICENSE) License.
