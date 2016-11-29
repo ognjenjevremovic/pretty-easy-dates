@@ -62,6 +62,7 @@ Optional parameter to be passed can be one of the following:
 
 For more information about the parameters, please refer to the examples below.
 
+&nbsp;
 
 ## Examples
 
