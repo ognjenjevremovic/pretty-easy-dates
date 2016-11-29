@@ -20,4 +20,4 @@
  SOFTWARE.
  */
 
-module.exports = require("./bin/index.js");
+module.exports = require("./lib/index.js");
