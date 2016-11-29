@@ -1,19 +1,21 @@
 # **pretty-easy**
 
 ### **pretty-easy** is a pack (bundle) of NodeJS modules for common tasks, such as:
-  - displaying **dates**
+  - displaying **dates**,
   - **logs** and outputs to the console,
   - setting and reading **environment variables**,
   - **CRUD operations** using MongoDB database collections.
 
+&nbsp;
+
 ### *What is pretty-easy-dates?*
-***pretty-easy-dates** is a simple NodeJS module for getting the desired date(s) and (current) time/timestamp, in a string, number or JavaScript Date object notation like format*.
+***pretty-easy-dates*** *is a simple NodeJS module for getting the desired date(s) and (current) time/timestamp in a string, number or JavaScript Date object format*.
 
 ### *Why use this module?*
 I've created this module, mostly for myself to use, as I often find myself working with timestamps and human readable date formats when creating dymanic content or generating the token for the client side authentication and authorazation purposes.
-Applying the **DRY** *(don't repeat yourself!)* principle, I've decided to take my often repeated tasks and outline them in a simple module and make them available for everyone, that finds themselves in the same situation as I often do, to use.
+Applying the **DRY** *(don't repeat yourself!)* principle, I've decided to take my often repeated tasks and outline them in a simple module and make them available for everyone that finds themselves in the same situation as I often do, to use.
 
-It's a minimalistic module that is able to serve dates in a string, number or JavaScript Date object notation format for you to use and store in your database alongside your blogposts, comments, tokens, users - you name it!
+It's a minimalistic module that is able to serve dates in a string, number or JavaScript Date object format for you to use and store in your database alongside your blogposts, comments, tokens, users - you name it!
 
 ### *How to use this module?*
 In it's simple use it just returns a JavaScript object notation with following parameters:
@@ -28,16 +30,20 @@ It also includes time properties of a specific date, which includes:
   - **minutes** *(2 digit number)*,
   - **hours**   *(2 digit number)*
 
-There's also string value date and time shortcut formats (useful for dynamic content, but not so great for *'comparison purposes'*; i.e. where you'd like to see if a token or a cookie expired or not):
+There's also shortcut methods for displaying current date and time in string formats (useful for dynamic content, but not so great for *comparison purposes*; i.e. where you'd like to see if a token or a cookie expired or not). These are more *human readable*:
   - **date**,
   - **time**,
   - **now**
+
+&nbsp;
 
 # Install
 This is a [nodejs.org](http://www.node.js) module available through the [npm](http://npmjs.org) registry. Installation is done using the **npm install** command:
 ```sh
 $ npm install pretty-easy-dates
 ```
+
+&nbsp;
 
 # Usage
 After installing the module (localy in your project directory), in order to use it in your file you first need to require it.
@@ -47,12 +53,12 @@ var dates = require('pretty-easy-dates');
 
 The module returns a function for you to call (with optional parameter to be passed to a function call), which then returns a JavaScript object notation with properties outlined above.
 
-##### dates([parameter])
+#### dates([parameter])
 Optional parameter to be passed can be one of the following:
-  - one of the predefined keywords (string),
-  - timestamp (number),
-  - Array (of predefined keywords and/or numbers),
-  - JavaScript object notation with certain properties
+  - **keyword** (predefined string value),
+  - **timestamp** (number),
+  - **Array** (of predefined keywords and/or number values),
+  - **JavaScript object notation** (with specific key/value pairs)
 
 For more information about the parameters, please refer to the examples below.
 
@@ -60,7 +66,7 @@ For more information about the parameters, please refer to the examples below.
 ## Examples
 
 ### 1. Simple usage (no parameter)
-The most simplest use is to call the function returned by the module without supplying the function with parameter, which will return the JavaScript object with key value pairs representing the current date values.
+The most simplest use is to call the function returned by the module without supplying the function with any of the defined parameters, which will return the JavaScript object with key/value pairs representing the current date values.
 ```javascript
 var now = dates();
 ```
@@ -79,19 +85,20 @@ The object returned will return the object with the format:
   time: 15:28:06,
   now: Date: 28.11.2016 - Time: 15:28:06
 ```
-*\* The values will represent the current date if no parameters are passed!*.
+* The values will represent the current date if no parameters are passed!*.
 
 ### 2. Simple usage (string or number parameter)
-If you'd like to get the object representing the certain date (and time) in the past or in the future you'll need to pass the parameter in a JavaScript Date object or timestamp representation of a date .
+If you'd like to get the same object output, but with the different values (representing the certain date and time in the past or in the future) you'll need to supply the function with the parameter in a JavaScript Date or timestamp format.
 ```javascript
 var pastDate = 1463408291376,  // 16th of May 2016 16:18h
     now = dates(pastDate);
 ```
-*\* Important:*
-There's a limit of a maximum number of days in the past and future that you can traverse (this is mostly set due to *why not, reason*, as I assume no one is a timetraveler here, right?) The boundries are set to 10 years in both directions; 10 years in back in time and 10 years to the *future*.
+*Important:*
+There's a limit of a maximum number of days in the past and future that you can traverse (this is mostly set due to "**why not** *reason*", as I assume no one is a timetraveler here, right?).
+The boundries are set to 10 years in both directions; 10 years in back in time and 10 years to the *future*.
 
 ### 3. Array parameter supplied
-If you'd like to get multiple outcomes for past or future dates, aswell as the current date and time you can provide an array:
+If you'd like to get multiple outcomes for past or future dates, aswell as the current date and time you can provide an array of values:
 ```javascript
 var timeframes = ['last week', 'tomorrow'],
     times = dates(timeframes);
@@ -127,18 +134,18 @@ tomorrow:
      date: '29.11.2016' }
 ```
 
-The array parameter accepts the string and number values (number values can be negative or positive values, depending if you're traving through time in the past o future *wink wink*).
+The array parameter accepts the string and number values (number values can be negative or positive values, depending if you're traversing through time in the past or future directions *wink wink*).
 
 There are predefined keywords that could be used, for a easy of use:
-  - *last week **||** lastWeek **||** lw* - which return the current date - 7 days
-  - *yesterday **||** yst* - which return the current date - 24h
-  - *tomorrow **||** tmrw* - which return the current date + 24h
-  - *next week **||** nextWeek **||** nw - which return the current date + 7 days
+  - *last week* **||** *lastWeek* **||** *lw* - which returns the current date - 7 days
+  - *yesterday* **||** *yst* - which return the current date - 24h
+  - *tomorrow* **||** *tmrw* - which return the current date + 24h
+  - *next week* **||** *nextWeek* **||** *nw* - which return the current date + 7 days
 
-You could also supply number parameters (both positive and negative values).
-  - positive number values define the number of days (in the future) from the current date and will result in the value of *futureDate_x* key (where x is the number of days in the future),
-  - negative number values define the number of days (in the past) from the current date and will result in the value of *pastDate_x* key (where x is the number of days in the past)
-  -
+You could also supply number values to the array (both positive and negative values).
+  - positive number values define the number of days (in the future) from the current date and will result in the value of **futureDate_x** key (where *x* is the number of days in the future),
+  - negative number values define the number of days (in the past) from the current date and will result in the value of **pastDate_x** key (where *x* is the number of days in the past)
+
 ```javascript
 var timeframes = [-22, -11, 16],
     times = dates(timeframes);
@@ -182,10 +189,9 @@ today:
 ```
 
 ### 4. Object parameter supplied
-Providing JavaScript object notation as a optional parameter has the same outcome as an array, with a few limitations.
-The key value pairs you provide, must fallow a certain pattern.
-
-Keys must be one of the predefined keywords and the value needs to be truthy (it has the same output no matter if you provide a string with certain characters, number greater than 0 or a boolean value **true**).
+Providing JavaScript object notation as an optional parameter has the same outcome as an array, with a few limitations.
+The key value pairs you provide must follow a certain pattern.
+Keys must be one of the predefined keywords and the value needs to be truthy *(it has the same output no matter if you provide a string with certain characters, number greater than 0 or a boolean value **true**)*.
 
 ```javascript
 var timeframes = {
@@ -225,9 +231,8 @@ today:
      date: '6.12.2016' }                                                              
 ```
 
-Another usage of JavaScript object notation, as parameter, is to include include propertie (*only!*) that has an array as it's value.
-Which, of course, has the same outcome as if you provided an Array of keywrods and/or number values (positive or negative).
-Just looks more *straight forward* then just by providing an array on it's own.
+Another usage of JavaScript object notation, as parameter, is to define **includes** propertie that has an array as it's value pair.
+This has the same outcome as if you provided an Array of keywords and/or number values (positive or negative) it just looks more *straight forward* then just by providing an array on it's own as a parameter to the function.
 ```javascript
 var timeframe = {
         includes : [-30, 'lw', 2, 'nw']
@@ -235,9 +240,13 @@ var timeframe = {
     now = dates(timeframe);
 ```
 
+&nbsp;
+
 ### Want to contribute?
 **Great!**
 Anyone can help make this project better - check out the [github](https://github.com/ognjenjevremovic/pretty-easy-dates) repository!
+
+&nbsp;
 
 ### License
 Copyright (c) 2016 [Ognjen Jevremović](https://github.com/ognjenjevremovic)
