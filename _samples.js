@@ -1,13 +1,14 @@
-var datter  =   require('./index'),
-    fs      =   require('fs');
+var dates  =   require('./index'),
+    fs      =   require('fs'),
 
-var now         =   Date.now(),
+    ////////
+    now         =   Date.now(),
     dayPeriod   =   1000*60*60*24;
 
 
 //  1. Simple use (no parameters passed)
 new Promise(function(resolve) {
-    var date    =   datter();
+    var date    =   dates();
 
     console.log('\nSimple use - no parameters supplied example');
     setTimeout(function() {
@@ -15,13 +16,13 @@ new Promise(function(resolve) {
         printIt(date);
         return resolve();
     }, 2000);
-//  2.  Timestamp parameter passed
+//  2.  Number (timestamp) parameter passed
 }).then(function() {
     return new Promise(promise_cb);
 
     function promise_cb(resolve) {
         var timeframe   =   now + (dayPeriod * -5),     // 5 days ago
-            date        =   datter(timeframe);
+            date        =   dates(timeframe);
 
         console.log('\nNumber (timestamp parameter) supplied example');
         setTimeout(function() {
@@ -36,7 +37,7 @@ new Promise(function(resolve) {
 
     function promise_cb(resolve) {
         var timeframes  =   [ 'lw', 'tomorrow' ],
-            date    =   datter(timeframes);
+            date    =   dates(timeframes);
 
         console.log('\nArray (of strings) supplied example');
         setTimeout(function() {
@@ -53,7 +54,7 @@ new Promise(function(resolve) {
 
     function promise_cb(resolve) {
         var timeframes  =   [ -12, 3 ],
-            date    =   datter(timeframes);
+            date    =   dates(timeframes);
 
         console.log('\nArray (of numbers) supplied example');
         setTimeout(function() {
@@ -72,7 +73,7 @@ new Promise(function(resolve) {
         var timeframes  =   {
             includes    :   [ -10, 'yesterday' ]
         },
-            date    =   datter(timeframes);
+            date    =   dates(timeframes);
 
         console.log('\nJavaScript object notation supplied with includes propertie (that accepts array of strings || numbers) example');
         setTimeout(function() {
@@ -92,7 +93,7 @@ new Promise(function(resolve) {
             lastWeek    :   true,
             tomorrow    :   true
         },
-            date    =   datter(timeframes);
+            date    =   dates(timeframes);
 
         console.log('\nJavaScript object notation passed with timeframe properties (that accepts boolean)');
         setTimeout(function() {

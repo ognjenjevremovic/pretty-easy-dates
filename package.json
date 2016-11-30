@@ -1,16 +1,16 @@
 {
   "name": "pretty-easy-dates",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Easy dates in string, number, JavaScript Date or object notation format",
   "author": "Ognjen Jevremović <jevremovic.ognjen@gmail.com> (https://github.com/ognjenjevremovic)",
-  "homepage" : "https://github.com/ognjenjevremovic/pretty-easy-dates",
-  "bugs" : {
-      "url" : "https://github.com/ognjenjevremovic/pretty-easy-dates/issues",
-      "email" : "ognjen.jevremovic@gmail.com"
+  "homepage": "https://github.com/ognjenjevremovic/pretty-easy-dates",
+  "bugs": {
+    "url": "https://github.com/ognjenjevremovic/pretty-easy-dates/issues",
+    "email": "ognjen.jevremovic@gmail.com"
   },
-  "repository" : {
-      "type" : "git",
-      "url" : "https://github.com/ognjenjevremovic/pretty-easy-dates.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ognjenjevremovic/pretty-easy-dates.git"
   },
   "license": "MIT",
   "main": "index.js",
