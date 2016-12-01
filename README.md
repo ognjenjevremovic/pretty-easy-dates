@@ -1,10 +1,12 @@
 # **pretty-easy**
 
 ### **pretty-easy** is a pack (bundle) of NodeJS modules for common tasks, such as:
-  - displaying **dates**,
-  - **logs** and outputs to the console,
-  - setting and reading **environment variables**,
-  - **CRUD operations** using MongoDB database collections.
+  - getting the **dates** [ [**Git repository**](https://github.com/ognjenjevremovic/pretty-easy-dates), [**npm module**](https://www.npmjs.com/package/pretty-easy-dates) ],
+  - displaying **logs** to the console (*including writing them to files*) [ [**Git repository**](https://github.com/ognjenjevremovic/pretty-easy-logs), [**npm module**](https://www.npmjs.com/package/pretty-easy-logs) ],
+  - setting and reading **environment variables** [(***in development***)],
+  - **CRUD operations** using MongoDB database collections [(***in development***)],
+  - **Crypting and decrypting** the data [(***planned for the later date***)],
+  - easily **sending the mails** [(***planned for the later date***)]
 
 &nbsp;
 
@@ -12,23 +14,23 @@
 ***pretty-easy-dates*** *is a simple NodeJS module for getting the desired date(s) and (current) time/timestamp in a string, number or JavaScript Date object format*.
 
 ### *Why use this module?*
-I've created this module, mostly for myself to use, as I often find myself working with timestamps and human readable date formats when creating dymanic content or generating the token for the client side authentication and authorazation purposes.
+I've created this module, mostly for myself to use, as I often find myself working with timestamps and human readable date formats when creating dynamic content or generating the token for the client side authentication and authorization purposes.
 Applying the **DRY** *(don't repeat yourself!)* principle, I've decided to take my often repeated tasks and outline them in a simple module and make them available for everyone that finds themselves in the same situation as I often do, to use.
 
 It's a minimalistic module that is able to serve dates in a string, number or JavaScript Date object format for you to use and store in your database alongside your blogposts, comments, tokens, users - you name it!
 
 ### *How to use this module?*
 In it's simple use it just returns a JavaScript object notation with following parameters:
-  - **timestamp**   *(number)*,
-  - **dateObj**     *(instanceof Date)*,
-  - **day**         *(2 digit number)*,
-  - **month**       *(2 digit number)*,
-  - **year**        *(2 digit number)*
+  - **timestamp** *< number >*,
+  - **dateObj**   *< Date >*,
+  - **day**       *< number >* 2 digit,
+  - **month**     *< number >* 2 digit,
+  - **year**      *< number >* 2 digit
 
 It also includes time properties of a specific date, which includes:
-  - **seconds** *(2 digit number)*,
-  - **minutes** *(2 digit number)*,
-  - **hours**   *(2 digit number)*
+  - **seconds** *< number >* 2 digit,
+  - **minutes** *< number >* 2 digit,
+  - **hours**   *< number >* 2 digit
 
 There's also shortcut methods for displaying current date and time in string formats (useful for dynamic content, but not so great for *comparison purposes*; i.e. where you'd like to see if a token or a cookie expired or not). These are more *human readable*:
   - **date**,
@@ -38,7 +40,7 @@ There's also shortcut methods for displaying current date and time in string for
 &nbsp;
 
 # Install
-This is a [nodejs.org](http://www.node.js) module available through the [npm](http://npmjs.org) registry. Installation is done using the **npm install** command:
+This is a [NodeJS](http://www.node.js) module available through the [npm](http://npmjs.org) registry. Installation is done using the **npm install** command:
 ```sh
 $ npm install pretty-easy-dates
 ```
@@ -95,11 +97,11 @@ var pastDate = 1463408291376,  // 16th of May 2016 16:18h
     now = dates(pastDate);
 ```
 *Important:*
-There's a limit of a maximum number of days in the past and future that you can traverse (this is mostly set due to "**why not** *reason*", as I assume no one is a timetraveler here, right?).
-The boundries are set to 10 years in both directions; 10 years in back in time and 10 years to the *future*.
+There's a limit of a maximum number of days in the past and future that you can traverse (this is mostly set due to "**why not** *reason*", as I assume no one is a time traveler here, right?).
+The boundaries are set to 10 years in both directions; 10 years in back in time and 10 years to the *future*.
 
 ### 3. Array parameter supplied
-If you'd like to get multiple outcomes for past or future dates, aswell as the current date and time you can provide an array of values:
+If you'd like to get multiple outcomes for past or future dates, as well as the current date and time you can provide an array of values:
 ```javascript
 var timeframes = ['last week', 'tomorrow'],
     times = dates(timeframes);
@@ -232,7 +234,7 @@ today:
      date: '6.12.2016' }                                                              
 ```
 
-Another usage of JavaScript object notation, as parameter, is to define **includes** propertie that has an array as it's value pair.
+Another usage of JavaScript object notation, as parameter, is to define **includes** property that has an array as it's value pair.
 This has the same outcome as if you provided an Array of keywords and/or number values (positive or negative) it just looks more *straight forward* then just by providing an array on it's own as a parameter to the function.
 ```javascript
 var timeframe = {
