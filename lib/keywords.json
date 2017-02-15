@@ -1,0 +1,11 @@
+{
+    "lastYear"  : ["last year", "lastyear", "ly"],
+    "lastMonth" : ["last month", "lastmonth", "lm"],
+    "lastWeek"  : ["last week", "lastweek", "lw"],
+    "yesterday" : ["yesterday", "ystd", "yd"],
+    "today"     : ["today", "td", "now"],
+    "tomorrow"  : ["tomorrow", "tmrw", "tr"],
+    "nextWeek"  : ["next week", "nextweek", "nw"],
+    "nextMonth" : ["next month", "nextmonth", "nm"],
+    "nextYear"  : ["next year", "nextyear", "ny"]
+}
