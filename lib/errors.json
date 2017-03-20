@@ -1,7 +1,0 @@
-{
-  "number" : "Number argument is $ value supported",
-  "string" : "Unsupported string value : $",
-  "date" : "Date argument is $ value supported",
-  "array" : "Unsuported argument type found in the Array : $.\nSupported Array values must be of type : String, Number",
-  "unsupported" : "Unsupported argument type passed : $.\nArgument value types must be of type: Date, String, Number, Array<Number||String>" 
-}

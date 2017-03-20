@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2016 Ognjen Jevremović
+ Copyright (c) 2017 Ognjen Jevremović
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -20,4 +20,4 @@
  SOFTWARE.
  */
 
-module.exports = require("./lib/index.js");
+module.exports = require("./dist/index.js");
