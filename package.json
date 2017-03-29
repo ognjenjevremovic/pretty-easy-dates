@@ -1,7 +1,7 @@
 {
   "name": "pretty-easy-dates",
-  "version": "0.1.4",
-  "description": "Easy dates in string, number, JavaScript Date or object notation format",
+  "version": "1.0.0",
+  "description": "Easy date values in string, number, JavaScript Date or object notation format",
   "author": "Ognjen Jevremović <jevremovic.ognjen@gmail.com> (https://github.com/ognjenjevremovic)",
   "homepage": "https://github.com/ognjenjevremovic/pretty-easy-dates",
   "bugs": {
@@ -14,8 +14,19 @@
   },
   "license": "MIT",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./tests/spec.js",
+    
+    "compile" : "npm run remove:compiled && npm run tsc && npm run move:test && npm run move:base",
+    "tsc": "tsc",
+    
+    "move:base" : "cp -ap dist/lib/* dist/ && rm -rf dist/lib",
+    "move:test" : "cp -ap dist/tests/* tests/ && rm -rf dist/tests",
+    
+    "remove:compiled": "npm run remove:dist && npm run remove:tests",
+    "remove:tests": "rm -f tests/*.js && rm -f tests/*.js.map && rm -f tests/*.d.ts && rm -f tests/**/*.js && rm -f tests/**/*.js.map && rm -f tests/**/*.d.ts",
+    "remove:dist": "rm -f ./dist/*.js && rm -f ./dist/*.js.map"
   },
   "keywords": [
     "pretty-easy-dates",
@@ -23,10 +34,21 @@
     "pretty-easy",
     "prettyeasy",
     "dates",
-    "date"
+    "date",
+    "date-value",
+    "date value",
+    "date-values",
+    "date values",
+    "get-date",
+    "get date",
+    "current-date",
+    "current date",
+    "get-date-and-time",
+    "get date and time"
   ],
   "dependencies": {
-    "pretty-easy-date-check": "^1.0.4"
+    "pretty-easy-data-types": "^1.0.3",
+    "pretty-easy-date-check": "^1.2.0"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.40",
