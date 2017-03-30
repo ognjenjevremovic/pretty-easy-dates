@@ -11,7 +11,7 @@ import { keywords as knownKeywords } from '../models';
  */
 const stringKeyword = (value : string) : number => {
     for(const keyword of knownKeywords) {
-        if(keyword.alt.includes(value)) return keyword.value;
+        if(keyword.alt.indexOf(value) > -1) return keyword.value;
     }
 };
 

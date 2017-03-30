@@ -15,7 +15,7 @@ var periods = [models_1.hourPeriod, models_1.dayPeriod, models_1.weekPeriod];
 var stringPeriod = function (value) {
     for (var _i = 0, periods_1 = periods; _i < periods_1.length; _i++) {
         var period = periods_1[_i];
-        if (period.alt.includes(trim_1.getValue(value)))
+        if (period.alt.indexOf(trim_1.getValue(value)) > -1)
             return period.value;
     }
 };

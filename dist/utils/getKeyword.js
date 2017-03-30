@@ -12,7 +12,7 @@ var models_1 = require("../models");
 var stringKeyword = function (value) {
     for (var _i = 0, knownKeywords_1 = models_1.keywords; _i < knownKeywords_1.length; _i++) {
         var keyword = knownKeywords_1[_i];
-        if (keyword.alt.includes(value))
+        if (keyword.alt.indexOf(value) > -1)
             return keyword.value;
     }
 };

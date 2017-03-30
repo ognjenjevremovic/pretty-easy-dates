@@ -21,7 +21,7 @@ const periods : Period[] = [ hourPeriod, dayPeriod, weekPeriod ];
  */
 const stringPeriod = (value : string) : number => {
     for(const period of periods) {
-        if(period.alt.includes(getPeriod(value))) return period.value;
+        if(period.alt.indexOf(getPeriod(value)) > -1) return period.value;
     }
 };
 
