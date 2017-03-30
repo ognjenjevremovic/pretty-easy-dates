@@ -31,7 +31,7 @@ let prettyDate = require('pretty-easy-dates');
 
 or if you use TypeScript
 ```typescript
-import prettyDate from 'pretty-easy-dates';
+import { default aas prettyDate } from 'pretty-easy-dates';
 ```
 &nbsp;
 
@@ -46,13 +46,15 @@ The module returns a function for you to call and supply it with a parameter tha
    * 'March 29 2017',
    * 'Wed Mar 29 2017',
    * 'Wed Mar 29 2017 15:33:51 GMT+0200 (CEST)'
+&nbsp;
  * you can use one of the following symbols, as a MM DD YYYY separator:
    * **.** *(dot)*,
    * **,** *(comma)*,
-   * ** ** *(blank space)*,
+   *  *(blank space)*,
    * **/** *(slash)*,
    * **-** *(dash)*,
    * **_** *(underscore)*
+&nbsp;
  * month and date values can be passed as either one or two digit notation, whereas year value must be a four digit notation.
 
 &nbsp;
@@ -79,7 +81,8 @@ prettyDate('03.29.2017.');  //  from String representation of date
   seconds: '19',                                # seconds   (String)
   date: '03.29.2017',                           # date      (String)
   time: '16:03:19',                             # time      (String)
-  now: 'Date : 03.29.2017 - Time 16:03:19' }    # now       (String) 
+  now: 'Date : 03.29.2017 - Time 16:03:19'      # now       (String) 
+}
 ```
 
 &nbsp;
