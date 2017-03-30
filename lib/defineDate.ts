@@ -3,7 +3,7 @@ import {
     isString,
     isDate
 } from 'pretty-easy-data-types';
-import dateString from 'pretty-easy-date-check';
+import { default as dateString } from 'pretty-easy-date-check';
 
 import CustomDate from './customDate';
 import {

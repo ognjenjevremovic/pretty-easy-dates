@@ -20,4 +20,8 @@
  SOFTWARE.
  */
 
+//  JavaScript
 module.exports = require("./dist").default;
+
+//  TypeScript
+module.exports.default = require('./dist').default;

@@ -26,7 +26,7 @@
     
     "remove:compiled": "npm run remove:dist && npm run remove:tests",
     "remove:tests": "rm -f tests/*.js && rm -f tests/*.js.map && rm -f tests/*.d.ts && rm -f tests/**/*.js && rm -f tests/**/*.js.map && rm -f tests/**/*.d.ts",
-    "remove:dist": "rm -f ./dist/*.js && rm -f ./dist/*.js.map"
+    "remove:dist": "rm -f ./dist/*.js && rm -f ./dist/*.js.map && rm -f ./dist/**/*.js && rm -f ./dist/**/*.js.map"
   },
   "keywords": [
     "pretty-easy-dates",
@@ -48,7 +48,7 @@
   ],
   "dependencies": {
     "pretty-easy-data-types": "^1.0.3",
-    "pretty-easy-date-check": "^1.2.0"
+    "pretty-easy-date-check": "^1.2.2"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.40",

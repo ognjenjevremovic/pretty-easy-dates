@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 //  Dependancie
 var assert = require("assert");
-var dist_1 = require("../../dist");
+var __1 = require("../..");
 //  Should return an Error
 var shouldReturnError = 'Should return an instance of Error ->';
 /**
@@ -18,9 +18,9 @@ var shouldReturnError = 'Should return an instance of Error ->';
 function invalidParam_returnsError(info, value) {
     it(shouldReturnError + " " + info, function () {
         //  Does not throw an error
-        assert.doesNotThrow(function () { return dist_1.default(value); }, Error);
+        assert.doesNotThrow(function () { return __1.default(value); }, Error);
         //  But returns an instance of Error class
-        assert.deepEqual(function () { return dist_1.default(value); }, new Error('error'));
+        assert.deepEqual(function () { return __1.default(value); }, new Error('error'));
     });
 }
 exports.default = invalidParam_returnsError;
