@@ -1,7 +1,7 @@
 //  Dependancie
 import * as assert from 'assert';
 
-import customDate from '../..';
+import { default as customDate } from '../../dist';
 import mockIt from './utils';
 import CustomDate from '../../dist/customDate';
 

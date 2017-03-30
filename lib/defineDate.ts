@@ -1,8 +1,7 @@
 //  Dependancies
 import {
     isString,
-    isDate,
-    getType
+    isDate
 } from 'pretty-easy-data-types';
 import dateString from 'pretty-easy-date-check';
 

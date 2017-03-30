@@ -47,7 +47,7 @@ export default function(
         timestamp : value.getTime(),
         dateObj   : value,
         date      : `${month}.${day}.${year}`,
-        time      : `${hours}:${minutes}${seconds}`,
-        now       : `Date : ${month}.${day}.${year} - Time ${hours}:${minutes}${seconds}`
+        time      : `${hours}:${minutes}:${seconds}`,
+        now       : `Date : ${month}.${day}.${year} - Time ${hours}:${minutes}:${seconds}`
     };
 }
