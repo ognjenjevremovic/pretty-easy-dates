@@ -38,21 +38,21 @@ import prettyDate from 'pretty-easy-dates';
 The module returns a function for you to call and supply it with a parameter that represents the desired date (as a String or instance of Date class data type) you'd like to be transformed in a JavaScript hash (or an instance of Error class if the invalid Date value was passed).
 &nbsp;
 
-##### ***Important :***
+#### ***Important :***
  * if a parameter passed is a string, it needs to be a valid representantion of a date; something in the line of :
-  * '3.29.17',
-  * '03.29.2017',
-  * 'Mar 29 2017',
-  * 'March 29 2017',
-  * 'Wed Mar 29 2017',
-  * 'Wed Mar 29 2017 15:33:51 GMT+0200 (CEST)'
+   * '3.29.17',
+   * '03.29.2017',
+   * 'Mar 29 2017',
+   * 'March 29 2017',
+   * 'Wed Mar 29 2017',
+   * 'Wed Mar 29 2017 15:33:51 GMT+0200 (CEST)'
  * you can use one of the following symbols, as a MM DD YYYY separator:
-  * **.** *(dot)*,
-  * **,** *(comma)*,
-  * ** ** *(blank space)*,
-  * **/** *(slash)*,
-  * **-** *(dash)*,
-  * **_** *(underscore)*
+   * **.** *(dot)*,
+   * **,** *(comma)*,
+   * ** ** *(blank space)*,
+   * **/** *(slash)*,
+   * **-** *(dash)*,
+   * **_** *(underscore)*
  * month and date values can be passed as either one or two digit notation, whereas year value must be a four digit notation.
 
 &nbsp;
@@ -66,21 +66,20 @@ prettyDate('03.29.2017.');  //  from String representation of date
 ```
 &nbsp;
 
-##### The module returns the hash with the following properties
-```javascript
+#### The module returns the hash with the following properties
+```sh
 {
-  timestamp: 1490796199450,                     //  timestamp (Number)
-  dateObj: 2017-03-29T14:03:19.450Z,            //  instance of Date class
-  year: '2017',                                 //  year      (String)
-  month: '03',                                  //  month     (String)
-  day: '29',                                    //  day       (String)
-  hours: '16',                                  //  hours     (String)
-  minutes: '03',                                //  minutes   (String)
-  seconds: '19',                                //  seconds   (String)
-  date: '03.29.2017',                           //  date      (String)
-  time: '16:03:19',                             //  time      (String)
-  now: 'Date : 03.29.2017 - Time 16:03:19' }    //  now       (String) 
-
+  timestamp: 1490796199450,                     # timestamp (Number)
+  dateObj: 2017-03-29T14:03:19.450Z,            # instance of Date class
+  year: '2017',                                 # year      (String)
+  month: '03',                                  # month     (String)
+  day: '29',                                    # day       (String)
+  hours: '16',                                  # hours     (String)
+  minutes: '03',                                # minutes   (String)
+  seconds: '19',                                # seconds   (String)
+  date: '03.29.2017',                           # date      (String)
+  time: '16:03:19',                             # time      (String)
+  now: 'Date : 03.29.2017 - Time 16:03:19' }    # now       (String) 
 ```
 
 &nbsp;
@@ -134,6 +133,8 @@ The module follows the Semantic Versioning standard to communicate what kinds of
 &nbsp;
 
 ## Changelogs
+
+&nbsp;
 **03/30** - *v1.0.0*
  * Initial release
 
@@ -155,7 +156,7 @@ Licensed under the [MIT](https://github.com/ognjenjevremovic/pretty-easy-dates/b
 [npm-url]: https://npmjs.org/package/pretty-easy-dates
 [travis-image]: https://img.shields.io/travis/ognjenjevremovic/pretty-easy-dates/master.svg
 [travis-url]: https://travis-ci.org/ognjenjevremovic/pretty-easy-dates
-[appveyor-image]: https://ci.appveyor.com/api/projects/status/s0aqf6h93d0i07yn?svg=true //!!!!
+[appveyor-image]: https://ci.appveyor.com/api/projects/status/f1qc8vohax2in5m2?svg=true
 [appveyor-url]: https://ci.appveyor.com/project/ognjenjevremovic/pretty-easy-dates
 [tests-image]: https://img.shields.io/badge/test-passing-green.svg
 [dependancy-image]: https://david-dm.org/ognjenjevremovic/pretty-easy-dates/status.svg
