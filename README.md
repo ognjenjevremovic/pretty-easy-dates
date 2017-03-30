@@ -31,7 +31,7 @@ let prettyDate = require('pretty-easy-dates');
 
 or if you use TypeScript
 ```typescript
-import { default aas prettyDate } from 'pretty-easy-dates';
+import { default as prettyDate } from 'pretty-easy-dates';
 ```
 &nbsp;
 
@@ -138,6 +138,9 @@ The module follows the Semantic Versioning standard to communicate what kinds of
 ## Changelogs
 
 &nbsp;
+**03/30** - *v1.0.1*
+ * Documentation updates
+
 **03/30** - *v1.0.0*
  * Initial release
 

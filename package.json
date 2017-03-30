@@ -1,6 +1,6 @@
 {
   "name": "pretty-easy-dates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easy date values in string, number, JavaScript Date or object notation format",
   "author": "Ognjen Jevremović <jevremovic.ognjen@gmail.com> (https://github.com/ognjenjevremovic)",
   "homepage": "https://github.com/ognjenjevremovic/pretty-easy-dates",
