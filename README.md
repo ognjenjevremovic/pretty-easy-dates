@@ -1,247 +1,141 @@
-# **pretty-easy**
-
-### **pretty-easy** is a pack (bundle) of NodeJS modules for common tasks, such as:
-  - getting the **dates** [ [**Git repository**](https://github.com/ognjenjevremovic/pretty-easy-dates), [**npm module**](https://www.npmjs.com/package/pretty-easy-dates) ],
-  - displaying **logs** to the console (*including writing them to files*) [ [**Git repository**](https://github.com/ognjenjevremovic/pretty-easy-logs), [**npm module**](https://www.npmjs.com/package/pretty-easy-logs) ],
-  - setting and reading **environment variables** [(***in development***)],
-  - **CRUD operations** using MongoDB database collections [(***in development***)],
-  - **Crypting and decrypting** the data [(***planned for the later date***)],
-  - easily **sending the mails** [(***planned for the later date***)]
+# pretty-easy-dates
 
 &nbsp;
 
+[![NPM Version][npm-image]][npm-url]
+[![Build Status - Travis CI][travis-image]][travis-url]
+[![Build Status - Appveyor][appveyor-image]][appveyor-url]
+[![Tests][tests-image]][travis-url]
+[![Dependancies][dependancy-image]][dependancy-url]
+
 ### *What is pretty-easy-dates?*
-***pretty-easy-dates*** *is a simple NodeJS module for getting the desired date(s) and (current) time/timestamp in a string, number or JavaScript Date object format*.
-
-### *Why use this module?*
-I've created this module, mostly for myself to use, as I often find myself working with timestamps and human readable date formats when creating dynamic content or generating the token for the client side authentication and authorization purposes.
-Applying the **DRY** *(don't repeat yourself!)* principle, I've decided to take my often repeated tasks and outline them in a simple module and make them available for everyone that finds themselves in the same situation as I often do, to use.
-
-It's a minimalistic module that is able to serve dates in a string, number or JavaScript Date object format for you to use and store in your database alongside your blogposts, comments, tokens, users - you name it!
-
-### *How to use this module?*
-In it's simple use it just returns a JavaScript object notation with following parameters:
-  - **timestamp** *< number >*,
-  - **dateObj**   *< Date >*,
-  - **day**       *< number >* 2 digit,
-  - **month**     *< number >* 2 digit,
-  - **year**      *< number >* 2 digit
-
-It also includes time properties of a specific date, which includes:
-  - **seconds** *< number >* 2 digit,
-  - **minutes** *< number >* 2 digit,
-  - **hours**   *< number >* 2 digit
-
-There's also shortcut methods for displaying current date and time in string formats (useful for dynamic content, but not so great for *comparison purposes*; i.e. where you'd like to see if a token or a cookie expired or not). These are more *human readable*:
-  - **date**,
-  - **time**,
-  - **now**
+***pretty-easy-dates*** *is a simple NodeJS module for getting the desired date and time/timestamp values in a hash (JavaScript object notation like format)*.
 
 &nbsp;
 
 # Install
 This is a [NodeJS](http://www.node.js) module available through the [npm](http://npmjs.org) registry. Installation is done using the **npm install** command:
 ```sh
-$ npm install pretty-easy-dates
+$ npm install pretty-easy-dates --save
 ```
+***--save*** *flag is used to save the module as a project dependancy in your package.json file.*
 
 &nbsp;
 
 # Usage
 After installing the module (localy in your project directory), in order to use it in your file you first need to require it.
 ```javascript
-var dates = require('pretty-easy-dates');
+let prettyDate = require('pretty-easy-dates');
 ```
+&nbsp;
 
-The module returns a function for you to call (with optional parameter to be passed to a function call), which then returns a JavaScript object notation with properties outlined above.
+or if you use TypeScript
+```typescript
+import prettyDate from 'pretty-easy-dates';
+```
+&nbsp;
 
-#### dates([parameter])
-Optional parameter to be passed can be one of the following:
-  - **keyword** (predefined string value),
-  - **timestamp** (number),
-  - **Array** (of predefined keywords and/or number values),
-  - **JavaScript object notation** (with specific key/value pairs)
+The module returns a function for you to call and supply it with a parameter that represents the desired date (as a String or instance of Date class data type) you'd like to be transformed in a JavaScript hash (or an instance of Error class if the invalid Date value was passed).
+&nbsp;
 
-For more information about the parameters, please refer to the examples below.
+##### ***Important :***
+ * if a parameter passed is a string, it needs to be a valid representantion of a date; something in the line of :
+  * '3.29.17',
+  * '03.29.2017',
+  * 'Mar 29 2017',
+  * 'March 29 2017',
+  * 'Wed Mar 29 2017',
+  * 'Wed Mar 29 2017 15:33:51 GMT+0200 (CEST)'
+ * you can use one of the following symbols, as a MM DD YYYY separator:
+  * **.** *(dot)*,
+  * **,** *(comma)*,
+  * ** ** *(blank space)*,
+  * **/** *(slash)*,
+  * **-** *(dash)*,
+  * **_** *(underscore)*
+ * month and date values can be passed as either one or two digit notation, whereas year value must be a four digit notation.
 
 &nbsp;
 
 ## Examples
 
-### 1. Simple usage (no parameter)
-The most simplest use is to call the function returned by the module without supplying the function with any of the defined parameters, which will return the JavaScript object with key/value pairs representing the current date values.
+### Convert Date to JavaScript hash
 ```javascript
-var now = dates();
+prettyDate(new Date());     //  from instance of Date class
+prettyDate('03.29.2017.');  //  from String representation of date
 ```
+&nbsp;
 
-The object returned will return the object with the format:
-```sh
-  timestamp: 1480343286502,
-  dateObj: Mon Nov 28 2016 15:28:06 GMT+0100 (Central Europe Standard Time),
-  year: 2016,
-  month: 11,
-  day: 28,
-  hours: 15,
-  minutes: 28,
-  seconds: 06,
-  date: 28.11.2016,
-  time: 15:28:06,
-  now: Date: 28.11.2016 - Time: 15:28:06
-```
-* The values will represent the current date if no parameters are passed!*.
-
-### 2. Simple usage (string or number parameter)
-If you'd like to get the same object output, but with the different values (representing the certain date and time in the past or in the future) you'll need to supply the function with the parameter in a JavaScript Date or timestamp format.
+##### The module returns the hash with the following properties
 ```javascript
-var pastDate = 1463408291376,  // 16th of May 2016 16:18h
-    now = dates(pastDate);
-```
-*Important:*
-There's a limit of a maximum number of days in the past and future that you can traverse (this is mostly set due to "**why not** *reason*", as I assume no one is a time traveler here, right?).
-The boundaries are set to 10 years in both directions; 10 years in back in time and 10 years to the *future*.
+{
+  timestamp: 1490796199450,                     //  timestamp (Number)
+  dateObj: 2017-03-29T14:03:19.450Z,            //  instance of Date class
+  year: '2017',                                 //  year      (String)
+  month: '03',                                  //  month     (String)
+  day: '29',                                    //  day       (String)
+  hours: '16',                                  //  hours     (String)
+  minutes: '03',                                //  minutes   (String)
+  seconds: '19',                                //  seconds   (String)
+  date: '03.29.2017',                           //  date      (String)
+  time: '16:03:19',                             //  time      (String)
+  now: 'Date : 03.29.2017 - Time 16:03:19' }    //  now       (String) 
 
-### 3. Array parameter supplied
-If you'd like to get multiple outcomes for past or future dates, as well as the current date and time you can provide an array of values:
-```javascript
-var timeframes = ['last week', 'tomorrow'],
-    times = dates(timeframes);
-```
-
-Which will result in an output:
-```sh
-today:
-   { timestamp: 1480343889682,
-     dateObj: Mon Nov 28 2016 15:38:09 GMT+0100 (Central Europe Standard Time),
-     year: 2016,
-     month: 11,
-     day: 28,
-     hours: 15,
-     minutes: 38,
-     seconds: 09,
-     date: 28.11.2016,
-     time: 15:38:09,
-     now: 'Date: 28.11.2016 - Time: 15:38:09' },
-lastWeek:
-   { timestamp: 1479739089682,
-     dateObj: Mon Nov 21 2016 15:38:09 GMT+0100 (Central Europe Standard Time),
-     year: 2016,
-     month: 11,
-     day: 21,
-     date: 21.11.2016 },
-tomorrow:
-   { timestamp: 1480430289682,
-     dateObj: Tue Nov 29 2016 15:38:09 GMT+0100 (Central Europe Standard Time),
-     year: 2016,
-     month: 11,
-     day: 29,
-     date: '29.11.2016' }
 ```
 
-The array parameter accepts the string and number values (number values can be negative or positive values, depending if you're traversing through time in the past or future directions *wink wink*).
+&nbsp;
 
-There are predefined keywords that could be used, for a easy of use:
-  - *last week* **||** *lastWeek* **||** *lw* - which returns the current date - 7 days
-  - *yesterday* **||** *yst* - which return the current date - 24h
-  - *tomorrow* **||** *tmrw* - which return the current date + 24h
-  - *next week* **||** *nextWeek* **||** *nw* - which return the current date + 7 days
+### Consider the following
+The module will return an instance of an Error class, if argument passed is not a valid date value, instead of throwing an error and terminating the Node process thus making it more dynamic and usable in production.
 
-You could also supply number values to the array (both positive and negative values).
-  - positive number values define the number of days (in the future) from the current date and will result in the value of **futureDate_x** key (where *x* is the number of days in the future),
-  - negative number values define the number of days (in the past) from the current date and will result in the value of **pastDate_x** key (where *x* is the number of days in the past)
+Having this in mind, I advise you to consider including a utility library to check the output data type, such as [pretty-easy-data-types](https://www.npmjs.com/package/pretty-easy-data-types).
 
 ```javascript
-var timeframes = [-22, -11, 16],
-    times = dates(timeframes);
+/*
+*   Only import the checks you will be using,
+*   instead of including the whole library
+*/
+const { 
+    isError         //  check for instance of Error class
+} = require('pretty-easy-data-types');
+const prettyDate  = require('pretty-easy-dates');
+
+
+//  You can pass any value/data type to a function
+//  without causing your process to break
+const isThisValidDate = prettyDate('this is not a valid date value!');
+
+/*
+*   After converting the date to its' corresponding hash
+*   you should perform the check on the value returned to see
+*   if the conversion was successful.
+*
+*   If the value returned is of type Object the conversion was successful
+*   and in this example we're going to extract the date and time from it
+*   else it is an instance of an Error class and we're just going to get it's message
+*/
+const dateAndTime = !isError(isThisValidDate) ? isThisValidDate.now : isThisValidDate.message;
 ```
 
-Which will result in an output:
-```sh
-today:
-   { timestamp: 1480410829328,
-     dateObj: Tue Nov 29 2016 10:13:49 GMT+0100 (Central Europe Standard Time),
-     year: 2016,
-     month: 11,
-     day: 29,
-     hours: 10,
-     minutes: 13,
-     seconds: 49,
-     date: '29.11.2016',
-     time: '10:13:49',
-     now: 'Date: 29.11.2016 - Time: 10:13:49' },
-  pastDate_22:
-   { timestamp: 1478510029328,
-     dateObj: Mon Nov 07 2016 10:13:49 GMT+0100 (Central Europe Standard Time),
-     year: 2016,
-     month: 11,
-     day: 7,
-     date: '7.11.2016' },
-  pastDate_11:
-   { timestamp: 1479460429328,
-     dateObj: Fri Nov 18 2016 10:13:49 GMT+0100 (Central Europe Standard Time),
-     year: 2016,
-     month: 11,
-     day: 18,
-     date: '18.11.2016' },
-  futureDate_16:
-   { timestamp: 1481793229328,
-     dateObj: Thu Dec 15 2016 10:13:49 GMT+0100 (Central Europe Standard Time),
-     year: 2016,
-     month: 12,
-     day: 15,
-     date: '15.12.2016' }
-```
+&nbsp;
 
-### 4. Object parameter supplied
-Providing JavaScript object notation as an optional parameter has the same outcome as an array, with a few limitations.
-The key value pairs you provide must follow a certain pattern.
-Keys must be one of the predefined keywords and the value needs to be truthy *(it has the same output no matter if you provide a string with certain characters, number greater than 0 or a boolean value **true**)*.
+## Releases
+The module follows the Semantic Versioning standard to communicate what kinds of changes are introduced in the new releases.
 
-```javascript
-var timeframes = {
-        yesterday : true,
-        nextWeek  : true
-    },
-    times = dates(timeframes);
-```
+### Versioning
+*Patch releases* : n.n.**X** -> Bug fixes, documentation updates, code cleanups, new test cases, optimization stuff and other minor changes that you should probably not be aware of;
+&nbsp;
 
-Which will result in an output:
-```sh
-today:                                                                                
-   { timestamp: 1480411200263,                                                          
-     dateObj: Tue Nov 29 2016 10:20:00 GMT+0100 (Central Europe Standard Time),         
-     year: 2016,                                                                      
-     month: 11,                                                                         
-     day: 29,                                                                           
-     hours: 10,                                                                         
-     minutes: 20,                                                                       
-     seconds: 0,                                                                        
-     date: '29.11.2016',                                                                
-     time: '10:20:0',                                                                   
-     now: 'Date: 29.11.2016 - Time: 10:20:0' },                                         
-  yesterday:                                                                            
-   { timestamp: 1480324800263,                                                          
-     dateObj: Mon Nov 28 2016 10:20:00 GMT+0100 (Central Europe Standard Time),         
-     year: 2016,                                                                      
-     month: 11,                                                                         
-     day: 28,                                                                           
-     date: '28.11.2016' },                                                              
-  nextWeek:                                                                             
-   { timestamp: 1481016000263,                                                          
-     dateObj: Tue Dec 06 2016 10:20:00 GMT+0100 (Central Europe Standard Time),         
-     year: 2016,                                                                      
-     month: 12,                                                                         
-     day: 6,                                                                            
-     date: '6.12.2016' }                                                              
-```
+*Minor releases* : n.**X**.n -> New feature(s) which don't break the existing ones. These ofter refer to minor TypeScript API changes (mainly due to declarations; JavaScript code will not be affected by these changes), code refactoring, some under the sheet changes that you should not worry about too much;
+&nbsp;
 
-Another usage of JavaScript object notation, as parameter, is to define **includes** property that has an array as it's value pair.
-This has the same outcome as if you provided an Array of keywords and/or number values (positive or negative) it just looks more *straight forward* then just by providing an array on it's own as a parameter to the function.
-```javascript
-var timeframe = {
-        includes : [-30, 'lw', 2, 'nw']
-    },
-    now = dates(timeframe);
-```
+*Major releases* : **X**.n.n -> Changes that could *possibly* introduce the backwards compatibility issues. These are however very ***rare*** and could be relevant to you only in the case of an endpoint API change and the way you communicate with the module.
+
+&nbsp;
+
+## Changelogs
+**03/30** - *v1.0.0*
+ * Initial release
 
 &nbsp;
 
@@ -249,9 +143,20 @@ var timeframe = {
 **Great!**
 Anyone can help make this project better - check out the [github](https://github.com/ognjenjevremovic/pretty-easy-dates) repository!
 
-&nbsp;
+### Found a bug?
+Please open a an [issue](https://github.com/ognjenjevremovic/pretty-easy-dates/issues).
 
 ### License
-Copyright (c) 2016 [Ognjen Jevremović](https://github.com/ognjenjevremovic)
+Copyright (c) 2017 [Ognjen Jevremović](https://github.com/ognjenjevremovic)
 
 Licensed under the [MIT](https://github.com/ognjenjevremovic/pretty-easy-dates/blob/master/LICENSE) License.
+
+[npm-image]: https://img.shields.io/npm/v/pretty-easy-dates.svg
+[npm-url]: https://npmjs.org/package/pretty-easy-dates
+[travis-image]: https://img.shields.io/travis/ognjenjevremovic/pretty-easy-dates/master.svg
+[travis-url]: https://travis-ci.org/ognjenjevremovic/pretty-easy-dates
+[appveyor-image]: https://ci.appveyor.com/api/projects/status/s0aqf6h93d0i07yn?svg=true //!!!!
+[appveyor-url]: https://ci.appveyor.com/project/ognjenjevremovic/pretty-easy-dates
+[tests-image]: https://img.shields.io/badge/test-passing-green.svg
+[dependancy-image]: https://david-dm.org/ognjenjevremovic/pretty-easy-dates/status.svg
+[dependancy-url]: https://david-dm.org/ognjenjevremovic/pretty-easy-dates

@@ -38,7 +38,7 @@ var CustomDate = (function () {
         this.minutes = transform(date.getMinutes());
         this.seconds = transform(date.getSeconds());
         this.date = this.month + "." + this.day + "." + this.year;
-        this.time = this.hours + ":" + this.minutes + this.seconds;
+        this.time = this.hours + ":" + this.minutes + ":" + this.seconds;
         this.now = "Date : " + this.date + " - Time " + this.time;
     }
     return CustomDate;

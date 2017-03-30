@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 //  Dependancie
 var assert = require("assert");
-var __1 = require("../..");
+var dist_1 = require("../../dist");
 var utils_1 = require("./utils");
 //  Should return an Instance of CustomDate class
 var shouldReturnString = 'Should return an Instance of CustomDate class, with the various date value properties ->';
@@ -18,7 +18,7 @@ var shouldReturnString = 'Should return an Instance of CustomDate class, with th
  * @returns {*}
  */
 function validParam_returnsObject(info, equalityCheck, value) {
-    var cstDate = __1.default(value);
+    var cstDate = dist_1.default(value);
     var date = utils_1.default(equalityCheck);
     it(shouldReturnString + " " + info, function () {
         assert.equal(cstDate.year, date.year);
