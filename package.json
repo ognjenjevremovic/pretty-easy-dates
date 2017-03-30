@@ -48,7 +48,7 @@
   ],
   "dependencies": {
     "pretty-easy-data-types": "^1.0.3",
-    "pretty-easy-date-check": "^1.2.2"
+    "pretty-easy-date-check": "^1.2.4"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.40",
